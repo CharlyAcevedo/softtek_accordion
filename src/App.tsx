@@ -1,33 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import Accordion from './components/Accordion'
+import { tabContents } from './data/db'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <header className='app-header'>
+        <h1>Softtek Technical Test</h1>
+      </header>
+      <section className='app-top-section'>
+        <Accordion 
+          id={45}
+          title='Softtek Accordion Test'
+        >
+          <>
+            <p>This is a technical test using React components with compound pattern</p>
+            <p>In here you can set any component or list of components or elements you need</p>
+            <p>Autor: Carlos Acevedo</p>
+          </>
+        </Accordion>
+      </section>
+      <section className='app-bottom-section'>
+        <aside className='app-accordion-aside'>
+          {tabContents.map(tab => (
+            <Accordion id={tab.id} title={tab.title} content={tab.content} />
+          ))}
+        </aside>
+        <div className='app-other-container'>Free space to use</div>
+      </section>
     </>
   )
 }

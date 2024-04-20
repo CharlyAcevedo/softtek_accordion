@@ -1,0 +1,59 @@
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 251, 246);
+    margin: 8px 10px;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition-property: opacity, left;
+    transition-duration: 3s, 5s;
+}
+
+.tab-title {
+    display: flex;
+    flex-direction: row;
+    font-size:larger;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid rgb(50, 103, 163);
+    background-color: royalblue;
+    box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.73);
+    -webkit-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.73);
+    -moz-box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.73);
+    color: white;
+    padding: 5px;
+    line-height: 1.2rem;
+    user-select: none;
+    cursor: pointer;
+    transition-property: all;
+    transition-duration: 1s;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tab-title:hover, .tab-title:active {
+    background-color: rgb(36, 78, 164);
+}
+
+.tab-title-arrow {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.tab-container {
+    margin-top: 2px;
+    padding: 10px 8px;
+    border: 1px solid rgba(62, 62, 62, 0.304);
+    background-color: antiquewhite;
+    transition-property: all;
+    transition-duration: 5s;
+}
+
+.tab-collapsed {
+    display: none;
+    transition: all 1s ease-in-out;
+}
+
+.tab-expanded {
+    display: block;    
+    transition: all 1s ease-in-out;
+}
