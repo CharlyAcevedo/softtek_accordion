@@ -12,6 +12,7 @@ function App() {
       <section className='app-top-section'>
         <Accordion 
           title='Softtek Accordion Test'
+          bgColor='orange'
           collapsed={false}
         >
           <>

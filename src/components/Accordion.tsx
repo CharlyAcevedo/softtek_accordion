@@ -2,6 +2,7 @@ import { ReactNode, useCallback, useMemo, useState } from "react";
 import { ArrowDownOnSquareIcon, ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 import { v4 as uuidv4 } from "uuid"
 import './accordion.css'
+import { TBGColor } from "../types";
 
 type AccordionProps = {
   id?: number | string
@@ -9,6 +10,7 @@ type AccordionProps = {
   content?: string
   children?: ReactNode
   collapsed?: boolean
+  bgColor?: TBGColor
 }
 
 /**
@@ -19,9 +21,10 @@ type AccordionProps = {
  * @param {string} param0.content An optional param that contains the text to render as content for the tab
  * @param {ReactNode} param0.children An optional param with a child or child tree to render within the tab container
  * @param {boolean} param0.collapsed Optional param to set if accordion start expanded or collapsed, default is true
+ * @param {TBGColor} param0.bgColor Optional param to set a diferent background color for the tabs, available options are "gray", "orange", "darkBleu" or "default"
  * @returns React component named Accordion
  */
-export default function Accordion({id, title, content, children, collapsed = true}: AccordionProps) {
+export default function Accordion({id, title, content, children, collapsed = true, bgColor}: AccordionProps) {
 
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
 
@@ -31,13 +34,15 @@ export default function Accordion({id, title, content, children, collapsed = tru
     setIsCollapsed(!isCollapsed)
   }
 
+  const tabBgColor = bgColor !== 'default' ? bgColor : ''
+
   const ifContent = useCallback(() => content ? <p>{content}</p> : <></>, [content])
   const ifChildren = useCallback(() => children ? children : <></>, [children])
 
     return (
         <div className="accordion-container" id={accorionId}>
             <header 
-              className="tab-title"
+              className={`tab-title tab-bgc-${tabBgColor}`}
               onClick={handleCollapsed}
             >
                 <h2 className="tab-title-text">{title}</h2>

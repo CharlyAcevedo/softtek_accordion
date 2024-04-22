@@ -3,3 +3,5 @@ export type TTabInfo = {
     title: string;
     content: string;
 }
+
+export type TBGColor = 'gray' | 'orange' | 'darkblue' | 'default'
