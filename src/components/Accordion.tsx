@@ -24,7 +24,7 @@ type AccordionProps = {
  * @param {TBGColor} param0.bgColor Optional param to set a diferent background color for the tabs, available options are "gray", "orange", "darkBleu" or "default"
  * @returns React component named Accordion
  */
-export default function Accordion({id, title, content, children, collapsed = true, bgColor}: AccordionProps) {
+export default function Accordion({id, title, content, children, collapsed = true, bgColor = 'default'}: AccordionProps) {
 
   const [isCollapsed, setIsCollapsed] = useState(collapsed)
 
@@ -34,7 +34,7 @@ export default function Accordion({id, title, content, children, collapsed = tru
     setIsCollapsed(!isCollapsed)
   }
 
-  const tabBgColor = bgColor !== 'default' ? bgColor : ''
+  const tabBgColor = bgColor ? bgColor : ''
 
   const ifContent = useCallback(() => content ? <p>{content}</p> : <></>, [content])
   const ifChildren = useCallback(() => children ? children : <></>, [children])
