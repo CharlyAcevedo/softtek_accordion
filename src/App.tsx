@@ -11,8 +11,8 @@ function App() {
       </header>
       <section className='app-top-section'>
         <Accordion 
-          id={45}
           title='Softtek Accordion Test'
+          collapsed={false}
         >
           <>
             <p>This is a technical test using React components with compound pattern</p>
@@ -27,7 +27,7 @@ function App() {
             <Accordion id={tab.id} title={tab.title} content={tab.content} />
           ))}
         </aside>
-        <div className='app-other-container'>Free space to use</div>
+        <div className='app-other-container'>Free space to render anything</div>
       </section>
     </>
   )
